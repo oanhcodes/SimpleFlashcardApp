@@ -7,7 +7,7 @@ public class Card {
     public Card(String question, String answer) {
         this.isCorrect = false;
         this.question = question;
-        this.answer = answer;
+        this.answer = answer.toLowerCase();
     }
 
     /**
@@ -56,8 +56,8 @@ public class Card {
      * Sets current value of isCorrect to true when the user response is equal to current value of answer property
      * @return true is the user guessed right, returns false as a default value or if the user guessed wrong
      */
-    public Boolean checkAnswer(String userAnswer) {
-        if (answer.equals(userAnswer)) {
+    public Boolean checkAnswer(String response) {
+        if (answer.equals(response)) {
             isCorrect = true;
         } else {
             isCorrect = false;
