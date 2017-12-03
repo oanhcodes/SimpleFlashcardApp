@@ -13,10 +13,6 @@ public class ScoreCard {
         this.theScoreCard = theScoreCard;
     }
 
-    /** Retrieve the number of attempts for each card */
-    public int getAttemptCount(final Card card) {
-
-    }
 
 
 }
