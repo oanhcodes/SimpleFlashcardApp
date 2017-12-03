@@ -1,35 +1,41 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Stack;
 
 public class Deck {
 
 
-    private List<Card> theDeck;
-    private List<Card> incorrect;
+    private Stack<Card> theDeck;
 
     public Deck() {
-        theDeck= new ArrayList<Card>();
-        incorrect= new ArrayList<Card>();
+        theDeck= new Stack<Card>();
+
     }
     //add single card to the deck
     public void addCard(Card card){
-        theDeck.add(card);
-
+        theDeck.push(card);
     }
+
     // add multiple cards to the deck
     public void addCards(ArrayList<Card> Cards){
         for(int i=0; i<Cards.size(); i++){
             addCard(Cards.get(i));
         }
     }
-    //remove single card from deck
-    public Card removeCard(int index){
-        return theDeck.remove(index);
+
+    //retrieve single card from deck
+    public Card retrieveCard(){
+        return theDeck.pop();
     }
 
     public int getSize(){
         return theDeck.size();
     }
+
+    public Boolean checkComplete(){
+
+    }
+
 
     public Card getCard(int index){
         return theDeck.get(index);
