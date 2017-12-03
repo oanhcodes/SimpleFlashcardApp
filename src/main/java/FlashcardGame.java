@@ -3,7 +3,7 @@ import java.util.List;
 
 public class FlashcardGame {
 
-    //Create new Deck that will be played
+    //Create new Deck that will be played``
     final private static SimpleQueue<Card> deckQueue = new Deck<>(10);
 
     public static void main(final String[] args) {
