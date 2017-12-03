@@ -14,7 +14,7 @@ public class ScoreCard {
     }
 
     /** Retrieve the number of attempts for each card */
-    public int getAttemptCount(final Card card) {
+    public int get(final Card card) {
 
     }
 
