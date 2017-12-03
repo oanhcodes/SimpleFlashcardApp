@@ -4,8 +4,10 @@ public class Card {
     private String answer;
     private Boolean isCorrect;
 
-    public Card() {
+    public Card(String question, String answer) {
         this.isCorrect = false;
+        this.question = question;
+        this.answer = answer;
     }
 
     /**
