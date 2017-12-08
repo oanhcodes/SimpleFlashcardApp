@@ -1,2 +1,1 @@
-public class TestScoreCard {
-}
+public class TestScoreCard {}

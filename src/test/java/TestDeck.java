@@ -1,2 +1,1 @@
-public class TestDeck {
-}
+public class TestDeck {}
