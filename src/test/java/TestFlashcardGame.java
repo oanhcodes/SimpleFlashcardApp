@@ -1,2 +1,1 @@
-public class TestFlashcardGame {
-}
+public class TestFlashcardGame {}
