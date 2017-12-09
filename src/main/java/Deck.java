@@ -10,6 +10,7 @@ public class Deck<E> implements SimpleQueue<E> {
   private final E[] data;
   private List<E> cardList;
 
+  @SuppressWarnings("unchecked")
   public Deck(final int capacity) {
     this.capacity = capacity;
     this.data = (E[]) new Object[capacity];

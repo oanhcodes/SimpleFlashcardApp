@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class FlashcardGame {
 
-  // Create new Deck that will be played``
+  // Create new Deck that will be played
   private static final SimpleQueue<Card> deckQueue = new Deck<>(10);
 
   public static void main(final String[] args) {
@@ -39,7 +39,22 @@ public class FlashcardGame {
     // Create new instance of flashcard game
     FlashcardGame newGame = new FlashcardGame();
 
+    // Prepare a new deck of cards for the game
     newGame.populateDeck(cardSet);
+
+    // Create an empty scorecard for this game
+
+    Map<Card, Integer> theScoreCard = new HashMap<>();
+    ScoreCard sc = new ScoreCard(theScoreCard);
+    sc.createNewScoreCard(cardSet.iterator());
+
+    Map<Card, Integer> currScoreCard = sc.getNumOfAttempts();
+
+    List<Map.Entry<Card, Integer>> scoreList = new ArrayList<>(deckQueue.size());
+
+    for (Map.Entry<Card, Integer> pair : currScoreCard.entrySet()) {
+      scoreList.add(pair);
+    }
 
     System.out.println(
         "Welcome to the flash card game. Today you will practice your state and capitals. "
@@ -72,11 +87,15 @@ public class FlashcardGame {
     }
   }
 
+  /** Create an empty scorecard */
+  public void createScoreCard(SimpleQueue<Card> currDeck) {}
+
   /** Retrieve a card from the deck */
   public Card playCard() {
     return deckQueue.poll();
   }
 
+  /** Add card back to the deck if the user answers wrong */
   public void replayCard(Card obj) {
     deckQueue.offer(obj);
   }
