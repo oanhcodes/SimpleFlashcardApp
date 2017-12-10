@@ -19,7 +19,7 @@ jar {
     manifest {
         attributes 'Main-Class': mainClassName
     }
-}    
+}
 
 repositories {
     jcenter()
@@ -27,10 +27,11 @@ repositories {
 
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.+'
+
 }
 
-tasks.withType(JavaCompile) { 
-    options.compilerArgs << "-Xlint:all" 
+tasks.withType(JavaCompile) {
+    options.compilerArgs << "-Xlint:all"
 }
 
 tasks.withType(JavaExec) {
