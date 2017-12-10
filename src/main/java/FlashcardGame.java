@@ -17,11 +17,11 @@ public class FlashcardGame {
     Card c = new Card("Wisconsin", "Madison");
     Card d = new Card("Illinois", "Springfield");
     Card e = new Card("Ohio", "Columbus");
-    Card f = new Card("Illinois", "Springfield");
+    Card f = new Card("Arizona", "Phoenix");
     Card g = new Card("Alabama", "Montgomery");
     Card h = new Card("Florida", "Tallahassee");
     Card i = new Card("Georgia", "Atlanta");
-    Card j = new Card("Tennesse", "Nashville");
+    Card j = new Card("Tennessee", "Nashville");
 
     // Add cards to an array list
     List<Card> cardSet = new ArrayList<Card>();
@@ -42,42 +42,42 @@ public class FlashcardGame {
     // Prepare a new deck of cards for the game
     newGame.populateDeck(cardSet);
 
-    // Create an empty scorecard for this game
-
+    // Create an empty scorecard map for this game
     Map<Card, Integer> theScoreCard = new HashMap<>();
     ScoreCard sc = new ScoreCard(theScoreCard);
     sc.createNewScoreCard(cardSet.iterator());
 
-    Map<Card, Integer> currScoreCard = sc.getNumOfAttempts();
-
-    List<Map.Entry<Card, Integer>> scoreList = new ArrayList<>(deckQueue.size());
-
-    for (Map.Entry<Card, Integer> pair : currScoreCard.entrySet()) {
-      scoreList.add(pair);
-    }
-
+    // Start Flashcard Game
     System.out.println(
-        "Welcome to the flash card game. Today you will practice your state and capitals. "
-            + "Type exit to leave the game early");
+        "Welcome to the flash card game. Let's practice your state and capitals. Type exit to leave the game early.\n");
 
-    // Test question retrieval
+    // Continue asking questions until all cards are answered correctly
     while (!deckQueue.isEmpty()) {
       Card currCard = newGame.playCard();
+
       System.out.println("What is the capital of " + currCard.getQuestion() + "?");
 
-      // Add logic to retrieve and check answers
+      // Retrieve and check answer
       String response = input.next().toLowerCase();
       if (currCard.checkAnswer(response)) {
-        System.out.println("Nice Job");
+        // Add attempt in scorecard
+        sc.addAttempt(currCard);
+        System.out.println("Nice Job! You got that right.\n");
       } else if (response.equals("exit")) {
-        System.out.println("Exiting Game");
+        System.out.println("Exiting Game...");
         System.exit(0);
       } else {
-        System.out.println("Sorry that was incorrect");
+        // Add attempt in scorecard
+        sc.addAttempt(currCard);
+        System.out.println(
+            "Sorry that was incorrect. This card has been added back to the deck.\n");
         newGame.replayCard(currCard);
       }
     }
-    System.out.println("Congrats you have answered all the questions");
+    System.out.println("\nCongrats! You've finished answering all the questions correctly!");
+
+    // Print score card
+    sc.printScoreCard();
   }
 
   /** Add all cards to the deck */

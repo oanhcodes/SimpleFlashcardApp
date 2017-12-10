@@ -11,7 +11,7 @@ public class Card {
   public Card(String question, String answer) {
     this.isCorrect = false;
     this.question = question;
-    this.answer = answer.toLowerCase();
+    this.answer = answer;
   }
 
   /**
@@ -62,7 +62,7 @@ public class Card {
    *     wrong
    */
   public Boolean checkAnswer(String response) {
-    if (answer.equals(response)) {
+    if (answer.toLowerCase().equals(response.toLowerCase())) {
       isCorrect = true;
     } else {
       isCorrect = false;
