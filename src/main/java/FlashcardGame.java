@@ -5,47 +5,23 @@ import java.util.Scanner;
 
 public class FlashcardGame {
 
-  // Create new Deck that will be played
+  // Deck instance that will be played
   private static final SimpleQueue<Card> deckQueue = new Deck<>(10);
+  private static List<Card> cardList = new ArrayList<>();
 
   public static void main(final String[] args) {
     final Scanner input = new Scanner(System.in);
-
-    // Create test objects to test Deck queue implementation
-    Card a = new Card("California", "Sacramento");
-    Card b = new Card("Hawaii", "Honolulu");
-    Card c = new Card("Wisconsin", "Madison");
-    Card d = new Card("Illinois", "Springfield");
-    Card e = new Card("Ohio", "Columbus");
-    Card f = new Card("Arizona", "Phoenix");
-    Card g = new Card("Alabama", "Montgomery");
-    Card h = new Card("Florida", "Tallahassee");
-    Card i = new Card("Georgia", "Atlanta");
-    Card j = new Card("Tennessee", "Nashville");
-
-    // Add cards to an array list
-    List<Card> cardSet = new ArrayList<Card>();
-    cardSet.add(a);
-    cardSet.add(b);
-    cardSet.add(c);
-    cardSet.add(d);
-    cardSet.add(e);
-    cardSet.add(f);
-    cardSet.add(g);
-    cardSet.add(h);
-    cardSet.add(i);
-    cardSet.add(j);
 
     // Create new instance of flashcard game
     FlashcardGame newGame = new FlashcardGame();
 
     // Prepare a new deck of cards for the game
-    newGame.populateDeck(cardSet);
+    newGame.populateDeck();
 
     // Create an empty scorecard map for this game
     Map<Card, Integer> theScoreCard = new HashMap<>();
     ScoreCard sc = new ScoreCard(theScoreCard);
-    sc.createNewScoreCard(cardSet.iterator());
+    sc.createNewScoreCard(cardList.iterator());
 
     // Start Flashcard Game
     System.out.println(
@@ -81,7 +57,8 @@ public class FlashcardGame {
   }
 
   /** Add all cards to the deck */
-  public void populateDeck(List<Card> cards) {
+  public void populateDeck() {
+    List<Card> cards = createFakeCardData();
     for (Card c : cards) {
       deckQueue.offer(c);
     }
@@ -98,5 +75,32 @@ public class FlashcardGame {
   /** Add card back to the deck if the user answers wrong */
   public void replayCard(Card obj) {
     deckQueue.offer(obj);
+  }
+
+  /** Generate Fake Flashcard Data */
+  public List<Card> createFakeCardData() {
+    Card a = new Card("California", "Sacramento");
+    Card b = new Card("Hawaii", "Honolulu");
+    Card c = new Card("Wisconsin", "Madison");
+    Card d = new Card("Illinois", "Springfield");
+    Card e = new Card("Ohio", "Columbus");
+    Card f = new Card("Arizona", "Phoenix");
+    Card g = new Card("Alabama", "Montgomery");
+    Card h = new Card("Florida", "Tallahassee");
+    Card i = new Card("Georgia", "Atlanta");
+    Card j = new Card("Tennessee", "Nashville");
+
+    cardList.add(a);
+    cardList.add(b);
+    cardList.add(c);
+    cardList.add(d);
+    cardList.add(e);
+    cardList.add(f);
+    cardList.add(g);
+    cardList.add(h);
+    cardList.add(i);
+    cardList.add(j);
+
+    return cardList;
   }
 }
