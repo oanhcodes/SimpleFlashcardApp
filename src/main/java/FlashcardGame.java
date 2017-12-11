@@ -34,7 +34,7 @@ public class FlashcardGame {
       System.out.println("What is the capital of " + currCard.getQuestion() + "?");
 
       // Retrieve and check answer
-      String response = input.next().toLowerCase();
+      String response = input.nextLine().toLowerCase();
       if (currCard.checkAnswer(response)) {
         // Add attempt in scorecard
         sc.addAttempt(currCard);
