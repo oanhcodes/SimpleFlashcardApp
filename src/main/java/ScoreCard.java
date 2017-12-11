@@ -47,7 +47,8 @@ public class ScoreCard {
     asList();
     float numCorrect = 0;
 
-    System.out.println("\nHere are your results: ");
+    System.out.println(
+        "\nHere are the results for the attempts you made to answer each question. ");
 
     for (Map.Entry<Card, Integer> pair : scoreCardList) {
       if (pair.getValue() == 1) {
