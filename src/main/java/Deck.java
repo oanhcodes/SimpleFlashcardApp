@@ -19,6 +19,13 @@ public class Deck<E> implements SimpleQueue<E> {
     this.rear = capacity - 1;
   }
 
+  /**
+   * Returns a boolean value based on whether or not the element was added successfully based on the
+   * size and capacity of the deck
+   *
+   * @param obj a Card, or any other object
+   * @return true or false
+   */
   @Override
   public boolean offer(final E obj) {
     if (size < capacity) {
@@ -30,6 +37,11 @@ public class Deck<E> implements SimpleQueue<E> {
     return false;
   }
 
+  /**
+   * Retreives the card at the head of the deck or null is the deck is empty
+   *
+   * @return the first card or element at the head of the deck queue or null
+   */
   @Override
   public E peek() {
     if (size == 0) {
@@ -39,6 +51,11 @@ public class Deck<E> implements SimpleQueue<E> {
     }
   }
 
+  /**
+   * Retreives and removes the card at the head of the deck or null is the deck is empty
+   *
+   * @return the first card or element at the head of the deck queue or null
+   */
   @Override
   public E poll() {
     if (size == 0) {
@@ -51,6 +68,11 @@ public class Deck<E> implements SimpleQueue<E> {
     }
   }
 
+  /**
+   * Returns a boolean value based on whether or not the deck has the size greater than 0
+   *
+   * @return true or false
+   */
   @Override
   public boolean isEmpty() {
     if (size == 0) {
@@ -59,11 +81,21 @@ public class Deck<E> implements SimpleQueue<E> {
     return false;
   }
 
+  /**
+   * Returns the size of the deck
+   *
+   * @return the size
+   */
   @Override
   public int size() {
     return size;
   }
 
+  /**
+   * Returns the deck as an ArrayList
+   *
+   * @return the deck elements in an ArrayList
+   */
   @Override
   public List<E> asList() {
     // Done implement using an ArrayList preallocated with the right size

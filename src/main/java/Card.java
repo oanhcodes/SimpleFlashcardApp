@@ -44,12 +44,12 @@ public class Card {
     return isCorrect;
   }
 
-  /** Set the current value of the question property. */
+  /** Set the value of the question property. */
   public void setQuestion(String question) {
     this.question = question;
   }
 
-  /** Set the current value of the answer property. */
+  /** Set the value of the answer property. */
   public void setAnswer(String answer) {
     this.answer = answer;
   }

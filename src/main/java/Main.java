@@ -24,7 +24,7 @@ public class Main {
       case "1":
         newGame.createFakeCardData();
         System.out.println(
-            "Let's practice your state capitals! Type 'exit' at any time to leave the game early.\n");
+            "\nLet's practice your state capitals! Type 'exit' at any time to leave the game early.\n");
         break;
       case "2":
         System.out.println("\nHow many cards would you like to add to your custom deck?");
