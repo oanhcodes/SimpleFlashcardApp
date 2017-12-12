@@ -19,3 +19,6 @@ To run the program, type the following commands:
 ```
 ./build/scripts/SimpleFlashcardApp
 ```
+
+
+[Final Project Notes](https://github.com/oanhcodes/SimpleFlashcardApp/blob/master/FinalProjectNotes.md)
