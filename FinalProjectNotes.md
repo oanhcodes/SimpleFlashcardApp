@@ -1,6 +1,6 @@
 # Final Project Submission notes
 
-####Project Contributors: Linda Ho & Eunice Montenegro
+#### Project Contributors: Linda Ho & Eunice Montenegro
 
 ## Data structures Implemented
 
